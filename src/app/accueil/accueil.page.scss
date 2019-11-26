@@ -1,0 +1,36 @@
+.corps{
+    --background: url('../../assets/fd13.jpg') no-repeat center 31%;
+}
+/*ion-footer{
+    --ion-background-color: transparent!important;
+}*/
+/*
+.logo ion-icon{
+    font-size: 9em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}*/
+
+.logo img{
+    height: 86px;
+    width: 86px;
+    position: relative;
+    top: 4%;
+    left: 4%;
+    //transform: translate(-50%, -50%);
+}
+.logo {
+    position: relative;
+    height: 500px;
+}
+.logo h2{
+    color: white;
+    float: right;
+    padding-right: 31px;
+    padding-top: 29px;
+    font-family: fantasy;
+    font-size: 30px;
+}

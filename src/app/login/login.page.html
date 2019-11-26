@@ -1,0 +1,40 @@
+  <ion-content class="corps" >
+    <ion-row>
+      <ion-col>
+      <ion-button id="back" color="--ion-color-primary-contrast" size="small" [routerLink]="[ '/accueil']">
+        <ion-icon slot="icon-only" name="arrow-round-back"></ion-icon>
+      </ion-button>
+    </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col>
+      <div class="logo">
+          <!--ion-icon color="light" name="bus"></ion-icon-->
+        <!--ion-img src="'../../images/fd1.jpg"></ion-img--><!--icon color="light" name="sunny"></ion-icon-->
+        <!-- <ion-icon color="light" name="contact"></ion-icon> -->
+        <!-- <ion-icon color="light" name="cloudy-night"></ion-icon> -->
+        <img src="../../assets/icon/glob.png"> 
+      </div>
+  
+      <ion-item style="--highlight-color-focused: #ffff00;">
+        <ion-label color="light">Email</ion-label>
+        <ion-input color="light" type="mail" placeholder="Adresse email"></ion-input>
+      </ion-item>
+  
+      <ion-item style="--highlight-color-focused: #ffff00;">
+        <ion-label color="light">Mot de passe</ion-label>
+        <ion-input color="light" type="password" placeholder="Mot de passe"></ion-input>
+      </ion-item>
+  
+      <ion-item lines="none">
+        <ion-button color="light" slot="end" fill="clear">Mot de passe oublié ?</ion-button>
+      </ion-item>
+      
+      <ion-button color="warning" expand="block" shape="round" routerLink='/tabs/24'>Se connecter</ion-button>
+      <br>
+      <!--ion-button color = "warning" expand="block" shape="round">S'inscrire</ion-button-->
+  
+    </ion-col>
+    </ion-row>
+  </ion-content>
+  

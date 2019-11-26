@@ -1,0 +1,73 @@
+<ion-content>
+  <ion-row class="header">
+    <ion-col>
+      <ion-button id="back" color="--ion-color-primary-contrast" size="small" [routerLink]="[ '/login']">
+        <ion-icon slot="icon-only" name="arrow-round-back"></ion-icon>
+      </ion-button>
+      <br />
+      <h2><span [(ngModel)]="chauff.prenom"></span> <span [(ngModel)]="chauff.nom"></span>Mohamed Ben Saleh</h2>
+      <div class="flex">
+        <rating id="rate-driver" rate="3" size="default"></rating>
+        <h5>17.11.2019</h5>
+      </div>
+      <div class="photo">
+        <div class="border-blue">
+          <div class="border-white">
+            <ion-img class="avatar" src="../../assets/driver1.jpg" alt="photo chauffeur"></ion-img>
+          </div>
+        </div>
+      </div>
+      
+      <ion-card>
+          <ion-row>
+            <ion-col class="transfert" size="4">
+                <ion-img src="../../assets/icon/aeroport.png" alt="Transfert aeroport"></ion-img>
+            </ion-col>
+            <ion-col class="transfert" size="5">
+              <ion-label>
+                <p class="heure">Dép.: 8h30</p>
+                <p>03 Personne(s)</p>
+                <p>02 Destination(s)</p>
+              </ion-label>
+            </ion-col>
+            <ion-col size="2">
+                <ion-button fill="clear">
+                <ion-icon slot="icon-only" name="logo-buffer"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      <ion-card>
+        <ion-row>
+          <ion-col class="transfert" size="4">
+            <ion-img src="../../assets/icon/hotel.png" alt="Transfert hotel"></ion-img>
+          </ion-col>
+          <ion-col class="transfert" size="5">
+            <ion-label>
+              <p class="heure">Dép.: 8h30</p>
+              <p>03 Personne(s)</p>
+              <p>02 Destination(s)</p>
+            </ion-label>
+          </ion-col>
+          <ion-col size="2">
+              <ion-button fill="clear">
+              <ion-icon slot="icon-only" name="logo-buffer"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-col>
+
+
+
+
+
+
+
+
+
+  </ion-row>
+
+
+
+</ion-content>
