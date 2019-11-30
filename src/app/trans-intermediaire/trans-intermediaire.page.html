@@ -1,36 +1,44 @@
 <ion-content>
   <ion-row class="header">
     <ion-col>
-      <ion-button id="back" color="--ion-color-primary-contrast" size="small" [routerLink]="[ '/login']">
+      <ion-button id="back" color="--ion-color-primary-contrast" size="small" [routerLink]="[ '/tabs/3']">
         <ion-icon slot="icon-only" name="arrow-round-back"></ion-icon>
       </ion-button>
       <br />
       <!--ion-input class="np-chauff" [(ngModel)]="chauff.prenom"></ion-input-->
       <!--ion-input class="np-chauff" [(ngModel)]="chauff.nom"></ion-input-->
-      <h2>{{chauff.prenom}} {{chauff.nom}}</h2>
       <div class="flex">
-        <rating id="rate-driver" rate="3" size="default"></rating>
+          <div class="photo">
+              <div class="border-blue">
+                <div class="border-white">
+                    <!--ion-img class="avatar" src="{{chauff.photo}}" alt="photo chauffeur"></ion-img-->
+                  <ion-img class="avatar" src="'../../assets/icon/aeroport.png" alt="photo chauffeur"></ion-img>
+                </div>
+              </div>
+          </div>
+          <div>
+              <h2>Transfert <br><br> Aéroport</h2>
+          </div>
+        
+      </div>
+      <div class="flex">
+        
         <h5>17.11.2019</h5>
       </div>
-      <div class="photo">
-        <div class="border-blue">
-          <div class="border-white">
-              <!--ion-img class="avatar" src="{{chauff.photo}}" alt="photo chauffeur"></ion-img-->
-            <ion-img class="avatar" [src]="'http://transfert.com/storage/chauffeurs/'+chauff.photo" alt="photo chauffeur"></ion-img>
-          </div>
-        </div>
-      </div>
+    </ion-col>
+
+  </ion-row>
       
-      <ion-card *ngFor="let trans of lesTransferts">
+      <ion-card> <!--*ngFor="let trans of lesTransferts"-->
           <ion-row>
             <ion-col class="transfert" size="4">
                 
-            <ion-img src="{{ trans.origine === 'Aéroport' ? '../../assets/icon/aeroport.png' : '../../assets/icon/hotel.png' }}" alt="Transfert aeroport"></ion-img>
+            <ion-img src="../../assets/icon/aeroport.png" alt="Transfert aeroport"></ion-img>
             </ion-col>
             <ion-col class="transfert" size="5">
               <ion-label>
-              <p class="heure">Dép.: {{ trans.heure_d }}</p>
-              <p>{{ trans.nbpersonnes }} Personne(s)</p>
+              <p class="heure">Dép.: Hello</p>
+              <p>Hello Personne(s)</p>
               <p>02 Destination(s)</p>
             </ion-label>
                
@@ -41,15 +49,13 @@
 
             </ion-col>
             <ion-col size="2">
-                <ion-button fill="clear" (click)="chargerDetails(trans.id)">
+                <ion-button fill="clear">
                 <ion-icon slot="icon-only" name="logo-buffer"></ion-icon>
               </ion-button>
             </ion-col>
           </ion-row>
       </ion-card>
-    </ion-col>
 
-  </ion-row>
 
 
 

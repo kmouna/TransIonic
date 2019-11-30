@@ -2,6 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Chauffeur } from '../models/chauffeur';
+import { Transfert } from '../models/transfert';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
  
@@ -12,7 +13,7 @@ export class ApiService {
  
   // API path
   base_path_chauffeurs = 'http://127.0.0.1:8000/api/chauffeurs';
- 
+  base_path_transferts = 'http://127.0.0.1:8000/api/transferts';
   constructor(private http: HttpClient) { }
  
   // Http Options
@@ -43,6 +44,15 @@ export class ApiService {
   getChauffeur(id): Observable<Chauffeur> {
     return this.http
       .get<Chauffeur>(this.base_path_chauffeurs + '/' + id)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+  // Get single Chauffeur data by ID
+  getSesTransferts(id): Observable<Transfert> {
+    return this.http
+      .get<Transfert>(this.base_path_transferts + '/' + id)
       .pipe(
         retry(2),
         catchError(this.handleError)

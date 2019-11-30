@@ -1,22 +1,43 @@
 <ion-content class="corps">
         <ion-row>
                 <ion-col>
+
                         <div class="logo">
+                                <div>
+                                                <h2>EASY TRANSFERT</h2>
+                                </div>
                                 <!--ion-icon color="light" name="bus"></ion-icon-->
                                 <!--ion-img src="'../../images/fd1.jpg"></ion-img-->
                                 <!--icon color="light" name="sunny"></ion-icon-->
                                 <!-- <ion-icon color="light" name="contact"></ion-icon> -->
                                 <!-- <ion-icon color="light" name="cloudy-night"></ion-icon> -->
-                                <img src="../../assets/icon/glob.png">
-                                <h2>EASY TRANSFERT</h2>
+                                <!--img src="../../assets/icon/glob.png"-->
+                               
+                                <div class="photo-bus">
+                                <div class="border-white">
+                                        <ion-img src="../../assets/icon/buss.png"></ion-img>
+                                </div>
+                                </div>
+                                
+                                <div class="photo-plane">
+                                        <div class="border-white">
+                                                <ion-img src="../../assets/icon/planee.png"></ion-img>
+                                        </div>
+                                </div>
+                                <div class="photo-car">
+                                     <div class="border-white">
+                                           <ion-img src="../../assets/icon/carr.png"></ion-img>
+                                      </div>
+                                </div>
                         </div>
+
                         <ion-footer>
                                 <ion-row>
                                         <ion-col>
                                                 <div></div>
                                         </ion-col>
-                                        <ion-col>
-                                                <ion-button [routerLink]="['/login']" color="warning" shape="round">
+                                        <ion-col class="entrer">
+                                                <ion-button text-capitalize [ngStyle]="{'font-size': my_size,'font-weight': my_weight}" [routerLink]="['/login']" color="warning" shape="round">
                                                         Entrer</ion-button>
                                         </ion-col>
                                         <ion-col>

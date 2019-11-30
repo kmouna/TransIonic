@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  public my_size: string;
+  public my_weight: string;
+  constructor() { 
+    this.my_size = "15px";
+    this.my_weight = "bold";
+  }
 
   ngOnInit() {
   }

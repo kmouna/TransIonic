@@ -1,10 +1,10 @@
 .corps{
-    --background: url('../../assets/fd13.jpg') no-repeat 48% 30%;
+    --background: url('../../assets/fd14.jpg') no-repeat 65% top;
 }
-.header{ padding-top: 5px;}
-.padding {
-    padding: 5%!important;
-}
+/*ion-footer{
+    --ion-background-color: transparent!important;
+}*/
+/*
 .logo ion-icon{
     font-size: 9em;
     position: absolute;
@@ -12,28 +12,65 @@
     left: 50%;
     transform: translate(-50%, -50%);
     
-}
-
-.logo img{
-    height: 100px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+}*/
+.photo-bus {
+    display: flex;
+    justify-content: center;
+    margin-top: 77px;
+    margin-left: 57px;
+    width: 80px;
+    height: 80px;
+  }
+  .photo-plane {
+    display: flex;
+    justify-content: center;
+    margin-top: -106px;
+    margin-left: 132px;
+    width: 80px;
+    height: 80px;
+  }
+  .photo-car {
+    display: flex;
+    justify-content: center;
+    margin-top: -54px;
+    margin-left: 207px;
+    width: 80px;
+    height: 80px;
+  }
+  .border-white {
+    //width: fit-content;
+    padding: 10px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+  }
+/*.logo img{
+    height: 86px;
+    width: 86px;
+    position: relative;
+    top: 4%;
+    left: 4%;
+    //transform: translate(-50%, -50%);
+}*/
 .logo {
     position: relative;
-    height: 300px;
+    height: 299px;
 }
-//ion-content {
-    // --ion-background-color: linear-gradient(#6DD5FA, #2980B9);
-   // --ion-background-color: linear-gradient(#f5af19, #f12711);
-    // --ion-background-color: linear-gradient(#485563, #29323c);
-//}
+.logo h2{
+    color: white;
+    //float: right;
+    //padding-right: 31px;
+    //padding-top: 29px;
+    margin-top: -6px;
+    text-align: center;
+    font-family: "Distant Stroke";
+    font-size: 60px;
+    
+}
 ion-item {
     --ion-background-color: transparent!important;
 }
 .flex {
     display: flex;
     justify-content: space-between;
+    margin-top: 24px;
 }
