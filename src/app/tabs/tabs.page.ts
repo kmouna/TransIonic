@@ -13,17 +13,20 @@ export class TabsPage {
   id: number;
   chauff: Chauffeur;
   sesTransferts: any;
+  dateTrans: string;
 
-  constructor( public activatedRoute: ActivatedRoute,
-    public router: Router,
-    public apiService: ApiService,
-    public storage: Storage
+  constructor( private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private apiService: ApiService,
+    private storage: Storage
   ) {
     this.chauff = new Chauffeur();
   }
  
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params["id"];
+    this.dateTrans = this.activatedRoute.snapshot.params["date"];
+    //this.dateSys = new Date().toISOString();
     //get chauffeur details using id
     this.apiService.getChauffeur(this.id).subscribe(response => {
       //console.log(this.id);
@@ -31,7 +34,7 @@ export class TabsPage {
       this.storage.set('chauffeur', this.chauff);
       //console.log(response);
     });
-    this.apiService.getSesTransferts(this.id).subscribe(response => {
+    this.apiService.getSesTransferts(this.id, this.dateTrans).subscribe(response => {
       console.log(this.id);
       this.sesTransferts = response;
       this.storage.set('sesTransferts', this.sesTransferts);

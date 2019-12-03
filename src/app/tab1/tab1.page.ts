@@ -11,10 +11,11 @@ import { Storage } from '@ionic/storage';
 })
 export class Tab1Page {
 
- id: string;
+  id: string;
   chauff: Chauffeur;
   lesTransferts: any;
- 
+  dateSys: string;
+
   constructor(
     public activatedRoute: ActivatedRoute,
     public router: Router,
@@ -28,6 +29,7 @@ export class Tab1Page {
   ngOnInit() {
     this.chauff.nom = "";
     this.chauff.prenom = "";
+    this.dateSys = new Date().toISOString();
    // this.id = this.activatedRoute.snapshot.params["id"];
     //this.id = this.activatedRoute.snapshot.parent.paramMap.get('id');
     //get chauffeur details using id

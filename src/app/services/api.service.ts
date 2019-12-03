@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Chauffeur } from '../models/chauffeur';
 import { Transfert } from '../models/transfert';
+import { TransfertIntermediaire } from '../models/transfert-intermediaire';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
  
@@ -14,6 +15,7 @@ export class ApiService {
   // API path
   base_path_chauffeurs = 'http://127.0.0.1:8000/api/chauffeurs';
   base_path_transferts = 'http://127.0.0.1:8000/api/transferts';
+  base_path_transferts_intermediaires = 'http://127.0.0.1:8000/api/transintermediaires'
   constructor(private http: HttpClient) { }
  
   // Http Options
@@ -49,10 +51,28 @@ export class ApiService {
         catchError(this.handleError)
       )
   }
-  // Get single Chauffeur data by ID
-  getSesTransferts(id): Observable<Transfert> {
+  // Get single Transfert data by ID
+  getTransfert(id): Observable<Transfert> {
     return this.http
       .get<Transfert>(this.base_path_transferts + '/' + id)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+  // Get All transferts chauffeurs by ID and date
+  getSesTransferts(id, date): Observable<Transfert> {
+    return this.http
+      .get<Transfert>(this.base_path_transferts + '/' + id + '/' + date)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+  // Get All transfertsIntermediaires of one transfert by ID
+  getTransIntermediaires(idtrans): Observable<TransfertIntermediaire> {
+    return this.http
+      .get<TransfertIntermediaire>(this.base_path_transferts_intermediaires + '/' + idtrans)
       .pipe(
         retry(2),
         catchError(this.handleError)
