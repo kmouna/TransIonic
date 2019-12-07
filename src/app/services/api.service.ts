@@ -78,6 +78,17 @@ export class ApiService {
         catchError(this.handleError)
       )
   }
+
+  // Update TransfertIntermediaire by id
+  updateTransfertIntermediaire(id,transinter): Observable<TransfertIntermediaire> {
+    return this.http
+      .put<TransfertIntermediaire>(this.base_path_transferts_intermediaires + '/' + id, JSON.stringify(transinter), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
   //--------------**** Start CRUD Chauffeurs***----------------------//
  // Create a new chauffeur
   /*createChauffeur(chauff): Observable<Chauffeur> {

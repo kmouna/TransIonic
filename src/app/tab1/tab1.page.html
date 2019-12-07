@@ -10,7 +10,10 @@
       <h2>{{chauff.prenom}} {{chauff.nom}}</h2>
       <div class="flex">
         <rating id="rate-driver" rate="3" size="default"></rating>
-        <h5><ion-datetime displayFormat="DD.MM.YYYY"[(ngModel)]="dateSys" color ="light" readonly></ion-datetime></h5>
+        <h5>
+            <!--ion-icon name="add-circle"></ion-icon-->
+            <ion-datetime displayFormat="DD.MM.YYYY"[(ngModel)]="dateSys" color ="light" readonly></ion-datetime></h5>
+            <!--ion-icon name="remove-circle"></ion-icon-->
       </div>
       <div class="photo">
         <div class="border-blue">
@@ -25,7 +28,7 @@
           <ion-row>
             <ion-col class="transfert" size="4">
                 
-            <ion-img src="{{ trans.origine === 'Aéroport' ? '../../assets/icon/aeroport.png' : '../../assets/icon/hotel.png' }}" alt="Transfert aeroport"></ion-img>
+            <ion-img src="{{ trans.origine === 'Aéroport' ? '../../assets/icon/aeroport.png' : '../../assets/icon/hotel.png' }}" alt="Origine Transfert"></ion-img>
             </ion-col>
             <ion-col class="transfert" size="5">
               <ion-label>

@@ -1,58 +1,65 @@
 <ion-content>
   <ion-row class="header">
     <ion-col>
-      <ion-button id="back" color="--ion-color-primary-contrast" size="small" [routerLink]="[ '/tabs/3/2019-12-02']">
-        <ion-icon slot="icon-only" name="arrow-round-back"></ion-icon>
-      </ion-button>
-      <br />
-      <!--ion-input class="np-chauff" [(ngModel)]="chauff.prenom"></ion-input-->
-      <!--ion-input class="np-chauff" [(ngModel)]="chauff.nom"></ion-input-->
       <div class="flex">
-          <div class="photo">
-              <div class="border-blue">
-                <div class="border-white">
-                    <!--ion-img class="avatar" src="{{chauff.photo}}" alt="photo chauffeur"></ion-img-->
-                  <ion-img class="avatar" src="'../../assets/icon/aeroport.png" alt="photo chauffeur"></ion-img>
-                </div>
-              </div>
+        <div></div>
+        <ion-button id="back" color="--ion-color-primary-contrast" size="small" (click)="retour('11','2019-12-02')">
+          <ion-icon slot="icon-only" name="arrow-round-back"></ion-icon>
+        </ion-button>
+      </div>
+     
+      <div class="flex-photo">
+        <div class="photo">
+          <div class="border-blue">
+            <div class="border-white">
+              <ion-img
+                src="{{ unTransfert.origine === 'Aéroport' ? '../../assets/icon/aeroport.png' : '../../assets/icon/hotel.png' }}"
+                alt="Origine Transfert"></ion-img>
+            </div>
           </div>
-          <div>
-              <h2>Transfert <br><br> Aéroport</h2>
-          </div>
-        
+        </div>
+        <div>
+          <h2>Transfert {{unTransfert.origine}}</h2>
+          <h5>{{unTransfert.date}}</h5>
+          <h6>Dép.: {{unTransfert.heure_d}} Arr.: {{unTransfert.heure_a}}</h6>
+          <h6>{{unTransfert.nbpersonnes}} Personne(s)</h6>
+        </div>
+
       </div>
       <div class="flex">
-        
-        <h5>17.11.2019</h5>
+
+
       </div>
     </ion-col>
 
   </ion-row>
-      
-      <ion-card> <!--*ngFor="let trans of lesTransferts"-->
-          <ion-row>
-            <ion-col class="transfert" size="4">
-                
-            <ion-img src="../../assets/icon/aeroport.png" alt="Transfert aeroport"></ion-img>
-            </ion-col>
-            <ion-col class="transfert" size="5">
-              <ion-label>
-              <p class="heure">Dép.: Hello</p>
-              <p>Hello Personne(s)</p>
-              <p>02 Destination(s)</p>
-            </ion-label>
-               
-                <!--ion-input [(ngModel)]="trans.heure_d"></ion-input-->
-               
-                <!--ion-input [(ngModel)]="trans.nbpersonnes"></ion-input-->
-               
 
-            </ion-col>
-            <ion-col size="2">
-                <ion-button fill="clear">
-                <ion-icon slot="icon-only" name="logo-buffer"></ion-icon>
-              </ion-button>
-            </ion-col>
-          </ion-row>
-      </ion-card>
+  <ion-list> 
+      <ion-item-sliding *ngFor="let transinter of transIntermediaires; let i=index">
+      <ion-item>
+      <ion-col class="transfert" size="3">
+        <div class="num">0{{i+1}}</div>
+        <!--ion-img class="avatar" src="'../../assets/icon/aeroport.png" alt="Origine Transfert"></ion-img-->
+      </ion-col>
+      <ion-col class="transfert" size="9">
+        <ion-label>
+          <p class="heure">Source: {{transinter.nom_hotel}}</p>
+          <p>Vol: {{transinter.id_vol}}</p>
+          <p>Dép.: {{transinter.heure_d}} <span class="retard" *ngIf="transinter.heure_d_retard != '00:00:00'">{{transinter.heure_d_retard}}</span></p>
+          <p>Arr.:  {{transinter.heure_a}} <span class="retard" *ngIf="transinter.heure_a_retard != '00:00:00'">{{transinter.heure_d_retard}}</span></p>
+          <p>{{transinter.nbperso}} Personne(s)</p>
+        </ion-label>
+      </ion-col>
+    </ion-item>
+    <ion-item-options>
+        <ion-button fill="outline" [id]="'confirm_' + i" color="success" [disabled]="transinter.etat == 'Réalisé' ? true : false" (click)="confirmer(i,transinter.id)">
+            <ion-icon slot="icon-only" class="icone" name="contacts"></ion-icon>
+        </ion-button>
+        <ion-button fill="outline" color="danger">
+            <ion-icon slot="icon-only" class="icone" name="logo-buffer"></ion-icon>
+        </ion-button>
+    </ion-item-options>
+      </ion-item-sliding>
+  
+  </ion-list>
 </ion-content>
