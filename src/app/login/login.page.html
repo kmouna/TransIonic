@@ -1,7 +1,7 @@
   <ion-content class="corps" >
     <ion-row>
       <ion-col>
-      <ion-button id="back" color="--ion-color-primary-contrast" size="small" [routerLink]="[ '/accueil']">
+      <ion-button id="back" color="--ion-color-primary-contrast" size="small" (click)="retour()">
         <ion-icon slot="icon-only" name="arrow-round-back"></ion-icon>
       </ion-button>
     </ion-col>
@@ -10,7 +10,7 @@
       <ion-col>
           <div class="logo">
               <div>
-                              <h2>Easy Transfert</h2>
+                <h2>Easy Transfert</h2>
               </div>
               <!--ion-icon color="light" name="bus"></ion-icon-->
               <!--ion-img src="'../../images/fd1.jpg"></ion-img-->
@@ -38,12 +38,12 @@
   
       <ion-item style="--highlight-color-focused: #ffff00;">
         <ion-label color="light">Email</ion-label>
-        <ion-input color="light" type="mail" placeholder="Adresse email"></ion-input>
+        <ion-input color="light" type="mail" placeholder="Adresse email" [(ngModel)]="email" ></ion-input>
       </ion-item>
   
       <ion-item style="--highlight-color-focused: #ffff00;">
         <ion-label color="light">Mot de passe</ion-label>
-        <ion-input color="light" type="password" placeholder="Mot de passe"></ion-input>
+        <ion-input color="light" type="password" [(ngModel)]="mp"  placeholder="Mot de passe"></ion-input>
       </ion-item>
   
       <ion-item lines="none">
@@ -52,7 +52,7 @@
       <div class="flex">
         <div></div>
           <ion-button class="ion-text-capitalize" [ngStyle]="{'font-size': my_size,'font-weight': my_weight}" 
-          color="warning" shape="round" (click)="Sauthentifier()" routerLink=''>
+          color="warning" shape="round" (click)="Sauthentifier()">
           Se connecter</ion-button>
          <div></div>
       </div>

@@ -15,6 +15,7 @@ export class Tab1Page {
   chauff: Chauffeur;
   lesTransferts: any;
   dateSys: string;
+  date: string;
 
   constructor(
     public activatedRoute: ActivatedRoute,
@@ -23,6 +24,7 @@ export class Tab1Page {
     public storage: Storage
   ) {
     this.chauff = new Chauffeur();
+    this.lesTransferts = [];
    
   }
  
@@ -37,10 +39,19 @@ export class Tab1Page {
       console.log(this.id);
       this.chauff = response;
    })*/
+   
+    
+    /*this.apiService.getSesTransferts(this.id, this.dateSys).subscribe(response => {
+      console.log(this.id);
+      this.lesTransferts = response;
+      this.storage.set('sesTransferts', this.lesTransferts);
+      console.log(response);
+    });*/
     this.storage.get('chauffeur').then((val) => {
       this.chauff = val;
       console.log(this.chauff);
     });
+    
     this.storage.get('sesTransferts').then((val) => {
       this.lesTransferts = val;
       console.log(this.lesTransferts);
@@ -49,5 +60,8 @@ export class Tab1Page {
   chargerDetails(id) {
     console.log(id);
     this.router.navigateByUrl('trans-intermediaire/' + id);
+  }
+  retour() {
+    this.router.navigateByUrl('/login');
   }
 }

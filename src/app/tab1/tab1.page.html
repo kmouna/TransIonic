@@ -1,7 +1,7 @@
 <ion-content>
   <ion-row class="header">
     <ion-col>
-      <ion-button id="back" color="--ion-color-primary-contrast" size="small" [routerLink]="[ '/login']">
+      <ion-button id="back" color="--ion-color-primary-contrast" size="small" (click)="retour()">
         <ion-icon slot="icon-only" name="arrow-round-back"></ion-icon>
       </ion-button>
       <br />
@@ -12,7 +12,9 @@
         <rating id="rate-driver" rate="3" size="default"></rating>
         <h5>
             <!--ion-icon name="add-circle"></ion-icon-->
-            <ion-datetime displayFormat="DD.MM.YYYY"[(ngModel)]="dateSys" color ="light" readonly></ion-datetime></h5>
+            <ion-datetime displayFormat="DD.MM.YYYY"[(ngModel)]="dateSys" color ="light" readonly>
+            </ion-datetime>
+        </h5>
             <!--ion-icon name="remove-circle"></ion-icon-->
       </div>
       <div class="photo">
@@ -34,13 +36,8 @@
               <ion-label>
               <p class="heure">Dép.: {{ trans.heure_d }}</p>
               <p>{{ trans.nbpersonnes }} Personne(s)</p>
-              <p>02 Destination(s)</p>
+              <p><span class="retard" *ngIf="trans.retarde == '1'">Retardé</span></p>
             </ion-label>
-               
-                <!--ion-input [(ngModel)]="trans.heure_d"></ion-input-->
-               
-                <!--ion-input [(ngModel)]="trans.nbpersonnes"></ion-input-->
-               
 
             </ion-col>
             <ion-col size="2">
@@ -50,6 +47,7 @@
             </ion-col>
           </ion-row>
       </ion-card>
+
     </ion-col>
 
   </ion-row>

@@ -24,21 +24,27 @@ export class TabsPage {
   }
  
   ngOnInit() {
-    this.id = this.activatedRoute.snapshot.params["id"];
-    this.dateTrans = this.activatedRoute.snapshot.params["date"];
+
+    //this.id = this.activatedRoute.snapshot.params["id"];
+    //this.dateTrans = this.activatedRoute.snapshot.params["date"];
     //this.dateSys = new Date().toISOString();
-    //get chauffeur details using id
+    /*this.storage.get('id').then((val) => {
+      this.id = val;
+     //get chauffeur details using id
     this.apiService.getChauffeur(this.id).subscribe(response => {
       //console.log(this.id);
       this.chauff = response;
       this.storage.set('chauffeur', this.chauff);
       //console.log(response);
     });
+    });
+    
     this.apiService.getSesTransferts(this.id, this.dateTrans).subscribe(response => {
       console.log(this.id);
       this.sesTransferts = response;
       this.storage.set('sesTransferts', this.sesTransferts);
       console.log(response);
     });
+  }*/
   }
 }

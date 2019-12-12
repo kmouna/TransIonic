@@ -4,7 +4,7 @@
 
                         <div class="logo">
                                 <div>
-                                                <h2>EASY TRANSFERT</h2>
+                                     <h2>EASY TRANSFERT</h2>
                                 </div>
                                 <!--ion-icon color="light" name="bus"></ion-icon-->
                                 <!--ion-img src="'../../images/fd1.jpg"></ion-img-->
@@ -37,8 +37,11 @@
                                                 <div></div>
                                         </ion-col>
                                         <ion-col class="entrer">
-                                                <ion-button class="ion-text-capitalize" [ngStyle]="{'font-size': my_size,'font-weight': my_weight}" [routerLink]="['/login']" color="warning" shape="round">
-                                                        Entrer</ion-button>
+                                                <ion-button class="ion-text-capitalize" [routerLink]="['/login']" 
+                                                color="warning" shape="round"
+                                                [ngStyle]="{'font-size': my_size,'font-weight': my_weight}" >
+                                                Entrer
+                                                </ion-button>
                                         </ion-col>
                                         <ion-col>
                                                 <div></div>

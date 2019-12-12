@@ -16,7 +16,7 @@
 .photo-bus {
     display: flex;
     justify-content: center;
-    margin-top: 135px;
+    margin-top: 74px;
     margin-left: 57px;
     width: 80px;
     height: 80px;
@@ -52,18 +52,19 @@
     //transform: translate(-50%, -50%);
 }*/
 .logo {
-    position: relative;
-    height: 443px;
+  position: relative;
+  height: 376px;
 }
 .logo h2{
-    color: white;
-    //float: right;
-    //padding-right: 31px;
-    //padding-top: 29px;
-    margin-top: 65px;
-    text-align: center;
-    font-family: fantasy;
-    font-size: 30px;
+  color: white;
+  //float: right;
+  //padding-right: 31px;
+  //padding-top: 29px;
+  margin-top: 84px;
+  text-align: center;
+  font-family: "Distant Stroke";
+  font-size: 60px;
+  
 }
 .entrer .md .hydrated{
    --font-size: 18px!important;

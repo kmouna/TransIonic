@@ -51,6 +51,15 @@ export class ApiService {
         catchError(this.handleError)
       )
   }
+  // Get single TransfertIntermediaire data by ID
+  getTransIntermediaire(id): Observable<TransfertIntermediaire> {
+    return this.http
+      .get<TransfertIntermediaire>(this.base_path_transferts_intermediaires + '/' + id)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
   // Get single Transfert data by ID
   getTransfert(id): Observable<Transfert> {
     return this.http
@@ -72,7 +81,7 @@ export class ApiService {
   // Get All transfertsIntermediaires of one transfert by ID
   getTransIntermediaires(idtrans): Observable<TransfertIntermediaire> {
     return this.http
-      .get<TransfertIntermediaire>(this.base_path_transferts_intermediaires + '/' + idtrans)
+      .get<TransfertIntermediaire>(this.base_path_transferts_intermediaires + '/transfert/' + idtrans)
       .pipe(
         retry(2),
         catchError(this.handleError)
@@ -80,15 +89,23 @@ export class ApiService {
   }
 
   // Update TransfertIntermediaire by id
-  updateTransfertIntermediaire(id,transinter): Observable<TransfertIntermediaire> {
+  updateTransfertIntermediaire(idtransinter,transinter): Observable<TransfertIntermediaire> {
     return this.http
-      .put<TransfertIntermediaire>(this.base_path_transferts_intermediaires + '/' + id, JSON.stringify(transinter), this.httpOptions)
+      .patch<TransfertIntermediaire>(this.base_path_transferts_intermediaires + '/' + idtransinter, JSON.stringify(transinter), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
       )
   }
-
+// Get Chauffeur by email and pw
+getChauffeurByLogin(email,mp): Observable<Chauffeur> {
+  return this.http
+    .get<Chauffeur>(this.base_path_chauffeurs + '/' + email + '/' + mp)
+    .pipe(
+      retry(2),
+      catchError(this.handleError)
+    )
+}
   //--------------**** Start CRUD Chauffeurs***----------------------//
  // Create a new chauffeur
   /*createChauffeur(chauff): Observable<Chauffeur> {
@@ -129,4 +146,5 @@ export class ApiService {
       )
   }*/
    //--------------**** End CRUD Chauffeurs***----------------------//
+  
 }
